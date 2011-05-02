@@ -5,7 +5,7 @@
 use File::Basename;
 use File::Copy;
 
-open $CONFIG_file, "/home/tomme/.rt-sort.cfg" or die "Unable to open config: $!\n";
+open $CONFIG_file, "~/.rt-sort.cfg" or die "Unable to open config: $!\n";
 my $config = join "", <$CONFIG_file>;
 close $CONFIG_file;
 
