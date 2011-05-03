@@ -1,8 +1,20 @@
-This is a placeholder for all my scripts.
+rt-sort.pl is a script for sorting your rtorrent-downloads based on name an watch-dir like:
 
-Read the Wiki for detailed info for each script.
+for TV-series: 'downloads/Serier/HD/Show/Sesong 1/show.S01E01.720p.HDTV.×264-OK'
+Movies: 'downloads/Filmer/HD/Movie.2011.720p.BluRay.×264-OK'
 
-scripts:
-rt-sort.pl - Sort you downloads based on filename and watch-dirs
+add this to your .rtorrent.rc:
 
---
+# rt-sort START
+# Watch dirs
+schedule = watch_directory_2,10,10,"load_start=~/torrents/Filmer/*.torrent,d.set_custom2=FILM"
+schedule = watch_directory_3,10,10,"load_start=~/torrents/Serier/*.torrent,d.set_custom2=SERIE"
+
+# On finnished
+system.method.set_key = event.download.finished,move_me,“d.set_directory=\”$execute_capture=~/scripts/myscripts/rt-sort.pl,$d.get_base_path=,$d.get_custom2=\""
+
+# END
+
+edit the lines to fit you.
+
+move .rt-sort.cfg to youre home folder (~/) and edit it to fit you.
