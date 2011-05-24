@@ -103,11 +103,7 @@ if ($ARGV[$#ARGV] eq "SERIE") {
 
 } else {
 	$file =~ s/ $//;
-	if (-d $file) {
-		my $bname = basename($file);
-		$file =~ s/\/$bname//;
-		print "$file";
-	} else {
-		print "$file";
-	}
+	my $bname = basename($file);
+	$file =~ s/\/$bname//;
+	print "$file";
 }
