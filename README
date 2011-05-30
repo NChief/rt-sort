@@ -5,15 +5,9 @@ Movies: 'downloads/Filmer/HD/Movie.2011.720p.BluRay.×264-OK'
 
 add this to your .rtorrent.rc:
 
-# rt-sort START
 # Watch dirs
-schedule = watch_directory_2,10,10,"load_start=~/torrents/Filmer/*.torrent,d.set_custom2=FILM"
-schedule = watch_directory_3,10,10,"load_start=~/torrents/Serier/*.torrent,d.set_custom2=SERIE"
-
-# On finnished
-system.method.set_key = event.download.finished,move_me,“d.set_directory=\”$execute_capture=~/scripts/myscripts/rt-sort.pl,$d.get_base_path=,$d.get_custom2=\""
-
-# END
+schedule = watch_directory_1,10,10,"load_start=/home/user/torrents/Filmer/*.torrent,\"d.set_directory=\\\"$execute_capture={/home/user/scripts/perl/rt-sort.pl,$d.get_name=,FILM}\\\"\""
+schedule = watch_directory_2,10,10,"load_start=/home/user/torrents/Serier/*.torrent,\"d.set_directory=\\\"$execute_capture={/home/user/scripts/perl/rt-sort.pl,$d.get_name=,SERIE}\\\"\""
 
 edit the lines to fit you.
 

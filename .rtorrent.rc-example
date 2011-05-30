@@ -9,8 +9,8 @@ schedule = session_save,240,300,session_save=
 schedule = watch_directory_1,10,10,load_start=/home/user/torrents/Usortert/*.torrent
 
 # The rt-sort part
-schedule = watch_directory_2,10,10,"load_start=/home/user/torrents/Filmer/*.torrent,d.set_custom2=FILM"
-schedule = watch_directory_3,10,10,"load_start=/home/user/torrents/Serier/*.torrent,d.set_custom2=SERIE"
+schedule = watch_directory_2,10,10,"load_start=/home/user/torrents/Filmer/*.torrent,\"d.set_directory=\\\"$execute_capture={/home/user/scripts/perl/rt-sort.pl,$d.get_name=,FILM}\\\"\""
+schedule = watch_directory_3,10,10,"load_start=/home/user/torrents/Serier/*.torrent,\"d.set_directory=\\\"$execute_capture={/home/user/scripts/perl/rt-sort.pl,$d.get_name=,SERIE}\\\"\""
 
 schedule = watch_directory_4,10,10,"load_start=/home/user/torrents/Programmer/*.torrent,d.set_directory=/home/user/downloads/Programmer/"
 schedule = watch_directory_5,10,10,"load_start=/home/user/torrents/Spill/*.torrent,d.set_directory=/home/user/downloads/Spill/"
@@ -19,8 +19,5 @@ schedule = untied_directory,10,10,close_untied=
 port_range = 38900-49977
 port_random = yes
 encryption = allow_incoming, try_outgoing
-
-# run rt-sort.pl on finnish.
-system.method.set_key = event.download.finished,move_me,"d.set_directory=\"$execute_capture=/home/user/scripts/rt-sort/rt-sort.pl,$d.get_base_path=,$d.get_custom2=\""
 
 log.execute = ~/.rtorrent.log
