@@ -41,10 +41,12 @@ if ($ARGV[1] eq "SERIE") {
 		$folder = $sdfolder;
 	}
 
-	$file =~ m/(.*)(\.|\s)S([0-9]{1,2})E?[0-9]{0,2}|EP?[0-9]{1,2}(\.|\s)(720p|1080p|1080i)?\.?(.*)\.(x264|xvid)?/i;
+	#$file =~ m/(.*)(\.|\s)S([0-9]{1,2})E?[0-9]{0,2}|EP?[0-9]{1,2}(\.|\s)(720p|1080p|1080i)?\.?(.*)\.(x264|xvid)?/i;
+	$file =~ m/(.*)[\.|\s|_]S{0,1}(\d{1,2})[x|e|\.|_]/i;
 	my $show = ucfirst($1);
 	my $season = uc($3);
 	$show =~ s/\./ /g;
+	$show =~ s/_/ /g;
 	$show =~ s/aa/å/g;
 	$show =~ s/Aa/Å/g;
 	$season =~ s/^0//;
