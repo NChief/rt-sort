@@ -2,8 +2,8 @@
 
 #use strict;
 #use warnings;
-use File::Basename;
-use File::Copy;
+#use File::Basename;
+#use File::Copy;
 
 open $CONFIG_file, $ENV{'HOME'}."/.rt-sort.cfg" or die "Unable to open config: $!\n";
 my $config = join "", <$CONFIG_file>;
