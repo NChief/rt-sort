@@ -24,7 +24,8 @@ my $folder = "";
 
 my @hd_tags = ("720p", "1080p", "1080i");
 
-if ($ARGV[1] eq "SERIE") {
+#if ($ARGV[1] eq "SERIE") {
+if ($file =~ /S\d{1,}/i or $file =~ /(PDTV|HDTV)/i) { #Serie
 	my $is_hd = 0;
 
 	#my $bname = basename($file);
@@ -68,7 +69,8 @@ if ($ARGV[1] eq "SERIE") {
 		#my $command = `mv "$file" "$ufolder/$bname"`;
 		print $ufolder;
 	}
-} elsif ($ARGV[1] eq "FILM") {
+#} elsif ($ARGV[1] eq "FILM") {
+elsif ($file =~ /(x264|xvid|dvdr|h\.264|mkv|mp4|avi)/i) { # Film
     my $is_hd = 0;
 
                 #my $bname = basename($file);
